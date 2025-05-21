@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width:100%;
+             display: flex;
+            justify-content: center;
+        }
+        
+        body {
+           
+            background-color: #f4f4f4;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            }
+        input[type="radio"] + label {
+        display: inline-block; /* Make radio labels inline again */
+        margin-bottom: 0; /* Optional: no extra margin under radio labels */
+        }
+
+
+
+        .container {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        /* .visible {
+            display: block;
+        } */
+
+        .hide {
+            display: none;
+        }
+
+        button {
+            margin: 10px;
+            min-width: 100px;
+            padding: 5px;
+        }
+
+        button:hover {
+            background-color: rgb(218, 226, 231);
+        }
+
+        input[type="text"] {
+            width:100%;
+            height: 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+        #subject{
+            width: 100%;
+        }
+        textarea{
+            width: 100%;
+            
+            height:100px;
+        }
+
+        label{
+            text-align: left;
+        }
+        select{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form >
+    <div class="container">
+        <h2>Select Phone Type</h2>
+        <section class="phone-category-div">
+            <input type="radio" name="phone-category" value="Basic" id="basic-phone" checked>
+            <label for="basic-phone">Basic Phone</label>
+        
+            <input type="radio" name="phone-category" value="Smart" id="smart-phone">
+            <label for="smart-phone">Smart Phone</label>
+        </section>
+        
+
+         <button type="button" id="next1" aria-label="submit type selection">Next</button>
+
+         <section class="basic-phone-types hide" aria-live="assertive" aria-atomic="true">
+            <input type="radio" name="Basic-category" value="Single" id="single-phone" checked>
+            <label for="single-phone">Single Sim</label>
+        
+            <input type="radio" name="Basic-category" value="Dual" id="dual-phone">
+            <label for="dual-phone">Dual Sim</label>
+        </section>
+        
+        <section class="smart-phone-types hide">
+            <input type="radio" name="Smart-category" value="Android" id="android-phone" checked>
+            <label for="android-phone">Android</label>
+        
+            <input type="radio" name="Smart-category" value="IOS" id="ios-phone">
+            <label for="ios-phone">IOS</label>
+        
+            <input type="radio" name="Smart-category" value="Windows" id="windows-phone">
+            <label for="windows-phone">Windows Phone</label>
+        </section>
+        
+
+        <button type="button" id="next2" class="hide" aria-label="submit type selection">Next</button>
+
+        <section class="inputs hide">
+            <div class="single dual android ios windows input">
+                <label for="Phone-1">Phone Number:</label>
+                <input type="text" id="Phone-1" aria-required="true">
+            </div>
+        
+            <div class="dual input">
+                <label for="Phone-2">Phone Number (SIM-2):</label>
+                <input type="text" id="Phone-2" aria-required="true">
+            </div>
+        
+            <div class="android ios windows input">
+                <label for="emailid">Email ID:</label>
+                <input type="text" id="emailid" aria-required="true">
+            </div>
+        
+            <div class="android input">
+                <label for="duoid">Duo ID:</label>
+                <input type="text" id="duoid" aria-required="true">
+            </div>
+        
+            <div class="input ios">
+                <label for="faceid">Face ID:</label>
+                <input type="text" id="faceid" aria-required="true">
+            </div>
+        
+            <div class="windows input">
+                <label for="skypeid">Skype ID:</label>
+                <input type="text" id="skypeid" aria-required="true">
+            </div>
+        
+            
+            <button type="button" id="save-details" aria-label="submit phone details">Save Details</button>
+        </section>
+
+        
+        <section id="functions" class="hide">
+             <button type="button" id="call" class="single dual android ios windows input" aria-label="call(ctrl+c)" accesskey="c">call</button>
+             <button type="button" id="message" class="single dual android ios windows input" aria-label="message(ctrl+m)" accesskey="m">message</button>
+             <button type="button" id="email" class="android ios windows input">email</button>
+             <button type="button" id="face-time" class="input ios">Face time</button>
+             <button type="button" id="duo-call" class="android input">duo call</button>
+             <button type="button" id="skype" class="windows input">skype</button>
+        </section>
+
+        <section class="function-inputs hide">
+            <div class="call-inputs input">
+                <label for="reciever-no">Receiver Phone No:</label>
+                <input  type="text" id="reciever-no">
+            
+                <label for="call-sim" class="hide">Select Sim:</label>
+                <select name="call-sim" id="call-sim" class="hide">
+                    <option value="" disabled selected>Select Sim</option>
+                    <option value="1">SIM 1</option>
+                    <option value="2">SIM 2</option>
+                </select>
+            
+                <button type="button" class="proceed-call">Proceed to Call</button>
+            </div>
+            
+            <div class="message-inputs input">
+                <label for="msg-reciever-no">Receiver Phone No:</label>
+                <input  type="text" id="msg-reciever-no">
+            
+                <label for="message-content">Message Text:</label>
+                <textarea  id="message-content"></textarea>
+            
+                <label for="msg-sim" class="hide">Select Sim:</label>
+                <select name="msg-sim" id="msg-sim" class="hide" aria-label="select a sim by pressing enter">
+                    <option value="" disabled selected>Select Sim</option>
+                    <option value="1">SIM 1</option>
+                    <option value="2">SIM 2</option>
+                </select>
+            
+                
+            
+                <button type="button" class="proceed-message">Proceed to Message</button>
+            </div>
+            
+
+            <div class="mail-inputs input">
+                <label for="reciever-mailid">Receiver Mail ID:</label>
+                <input  type="text" id="reciever-mailid">
+                
+            
+                <label for="subject">Subject:</label>
+                <input  type="text" id="subject">
+                
+            
+                <label for="body">Body:</label>
+                <textarea  id="body"></textarea>
+                
+            
+                <button type="button" class="proceed-mail">Proceed to Send Mail</button>
+            </div>
+            
+            <div class="duo-inputs input">
+                <label for="reciever-duo-id">Receiver Duo ID:</label>
+                <input  type="text" id="reciever-duo-id">
+            
+                <button type="button" class="proceed-duocall">Proceed Duo Call</button>
+            </div>
+            
+            <div class="facetime-inputs input">
+                <label for="reciever-facetime-id">Receiver FaceTime ID:</label>
+                <input  type="text" id="reciever-facetime-id">
+            
+                <button type="button" class="proceed-facetime">Proceed FaceTime</button>
+            </div>
+            
+            <div class="skype-inputs input">
+                <label for="reciever-skype-id" >Receiver Skype ID:</label>
+                <input  type="text" id="reciever-skype-id">
+            
+                <button type="button" class="proceed-skypecall">Proceed Skype Call</button>
+            </div>
+            
+        </section>
+        <section class="end-result hide" >
+        <div class="result"></div>
+        
+
+        </section>
+     <button type="button" class="back hide" >Back</button>
+    </div>
+</form>
+    <script src="phone_classes.js" ></script>
+    <script src="phone_task.js"></script>
+    <!-- <script type="module" src="phone_task.js"></script> -->
+</body>
+</html>
