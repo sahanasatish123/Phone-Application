@@ -1,0 +1,13 @@
+{{page-title "Phone"}}
+<h2>Select Phone Type</h2>
+<section class="phone-category-div">
+            <input type="radio" name="phone-category" value="Basic" id="basic-phone" {{on "change" (fn this.setType "basic")}} >
+            <label for="basic-phone">Basic Phone</label>
+        
+            <input type="radio" name="phone-category" value="Smart" id="smart-phone" {{on "change" (fn this.setType "smart")}} >
+            <label for="smart-phone">Smart Phone</label>
+    
+        </section>
+
+         <button type="button" id="next1" aria-label="submit type selection " {{on "click" this.submitTypeSelection}}>Next</button>
+{{outlet}}

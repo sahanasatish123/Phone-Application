@@ -1,0 +1,70 @@
+{{page-title "ReceiverInfo"}}
+<h2>Enter Reciever Info</h2>
+{{#if (or (eq this.phoneSelection.phoneFunction "call") (eq this.phoneSelection.phoneFunction "message"))}}
+ <PhoneInput
+      @label="Receiver Phone No:"
+      @name="receiverPhoneNo"
+      @onInput={{this.updateField}}/>
+
+{{/if}}
+
+  {{#if (eq this.phoneSelection.phoneFunction "email")}}
+    <PhoneInput
+      @label="Receiver EmailID:"
+      @name="receiverEmailId"
+      @onInput={{this.updateField}}/>
+
+    <PhoneInput
+      @label="Subject:"
+      @name="emailSubject"
+      @onInput={{this.updateField}}/>
+
+    <label for="body">Body:</label>
+    <textarea  id="body"  {{on "input" this.updateEmailBody}}></textarea>
+                
+
+{{/if}}
+
+   {{#if (eq this.phoneSelection.phoneFunction "face-time")}}
+     <PhoneInput
+      @label="Receiver Face Id:"
+      @name="receiverFaceId"
+      @onInput={{this.updateField}}/>
+{{/if}}
+       {{#if (eq this.phoneSelection.phoneFunction "skype")}}
+     <PhoneInput
+      @label="Receiver Skype ID:"
+      @name="receiverSkypeId"
+      @onInput={{this.updateField}}/>
+    {{/if}}
+
+       {{#if (eq this.phoneSelection.phoneFunction "duo-call")}}
+     <PhoneInput
+      @label="Receiver Duo ID:"
+      @name="receiverDuoId"
+      @onInput={{this.updateField}}/>
+    {{/if}}
+
+
+  {{#if (eq this.phoneSelection.phoneFunction "message")}}
+    <label for="message-content">Message Text:</label>
+                <textarea  id="message-content" {{on "input"  this.updateMessageText}}></textarea>
+{{/if}}
+
+
+    {{#if (eq this.phoneSelection.phoneSubtype "Dual")}}
+                <label for="msg-sim" class="hide">Select Sim:</label>
+                <select name="msg-sim" id="msg-sim" class="hide" aria-label="select a sim by pressing enter" {{on "change" this.updateMessageSim}}>
+                    <option value="" disabled selected>Select Sim</option>
+                    <option value="1">SIM 1</option>
+                    <option value="2">SIM 2</option>
+                </select>
+
+     {{/if}}
+
+                
+
+<button type="button" {{on "click" this.proceed}}>proceed</button>
+<button type="button" {{on "click" this.goToFunctions}} >BACK </button>
+
+{{outlet}}

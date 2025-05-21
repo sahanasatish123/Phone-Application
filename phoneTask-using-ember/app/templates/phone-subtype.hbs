@@ -1,0 +1,29 @@
+{{page-title "PhoneSubtype"}}
+
+<h2>Select Phone SubType</h2>
+{{#if (eq this.phoneSelection.phoneType "basic")}}
+<section class="basic-phone-types hide" aria-live="assertive" aria-atomic="true">
+            <input type="radio" name="Basic-category" value="Single" id="single-phone" {{on "change" (fn this.setSubtype "Single")}}>
+            <label for="single-phone">Single Sim</label>
+        
+            <input type="radio" name="Basic-category" value="Dual" id="dual-phone" {{on "change" (fn this.setSubtype "Dual")}}>
+            <label for="dual-phone">Dual Sim</label>
+        </section> 
+ {{else}}
+<section class="smart-phone-types hide">
+            <input type="radio" name="Smart-category" value="Android" id="android-phone" {{on "change" (fn this.setSubtype "Android")}}>
+            <label for="android-phone">Android</label>
+        
+            <input type="radio" name="Smart-category" value="IOS" id="ios-phone" {{on "change" (fn this.setSubtype "IOS")}}>
+            <label for="ios-phone">IOS</label>
+        
+            <input type="radio" name="Smart-category" value="Windows" id="windows-phone" {{on "change" (fn this.setSubtype "Windows")}}>
+            <label for="windows-phone">Windows Phone</label>
+        </section>
+{{/if}}
+
+{{!-- <br> --}}
+<button type="button" id="next2" class="hide" aria-label="submit type selection" {{on "click" this.submitSubtypeSelection}}>Next</button> 
+
+
+{{outlet}}

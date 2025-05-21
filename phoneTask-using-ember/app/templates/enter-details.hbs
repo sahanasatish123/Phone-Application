@@ -1,0 +1,29 @@
+{{page-title "EnterDetails"}}
+<h1>Enter Det</h1>
+ <section class="inputs hide">
+
+         <PhoneInput @label="Phone Number:" @name="phoneNumber1" @onInput={{this.updateField}}/>
+
+          {{#if (eq this.phoneSelection.phoneSubtype "Dual")}}
+            <PhoneInput @label="Phone Number(Sim2):" @name= "phoneNumber2" @onInput={{this.updateField}}/>
+            {{/if}}
+
+            {{#if (eq this.phoneSelection.phoneType "smart")}}
+        <PhoneInput @label="Email Id:" @name="emailId" @onInput={{this.updateField}}/>
+            {{/if}}
+           
+        {{#if (eq this.phoneSelection.phoneSubtype "Android")}}
+        <PhoneInput @label="Duo Id:" @name="duoId" @onInput={{this.updateField}}/>
+         {{/if}}
+
+         {{#if (eq this.phoneSelection.phoneSubtype "IOS")}}
+         <PhoneInput @label="Face Id:" @name="faceId" @onInput={{this.updateField}}/>
+             {{/if}}
+             
+        {{#if (eq this.phoneSelection.phoneSubtype "Windows")}}
+        <PhoneInput @label="skype Id:" @name="skypeId" @onInput={{this.updateField}}/>
+             {{/if}}
+        
+            <button type="button" id="save-details" aria-label="submit phone details" {{on "click" this.savePhoneDetails}}>Save Details</button>
+        </section>
+{{outlet}}

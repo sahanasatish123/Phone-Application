@@ -1,0 +1,53 @@
+{{page-title "PhoneFunctions"}}
+<h2>Phone Functions</h2>
+<section id="functions" >
+  <button type="button" aria-label="call(ctrl+c)" {{on "click" (fn this.setFunctionType "call")}}>Call</button>
+  
+  <button type="button" aria-label="message(ctrl+m)" {{on "click" (fn this.setFunctionType "message")}}>Message</button>
+
+    {{#if (eq this.phoneSelection.phoneType "smart")}}
+
+  <button type="button"  {{on "click" (fn this.setFunctionType "email")}}>Email</button>
+{{/if}}
+
+
+         {{#if (eq this.phoneSelection.phoneSubtype "IOS")}}
+  <button type="button"  {{on "click" (fn this.setFunctionType "face-time")}}>Face Time</button>
+{{/if}}
+
+         {{#if (eq this.phoneSelection.phoneSubtype "Android")}}
+  <button type="button"  {{on "click" (fn this.setFunctionType "duo-call")}}>Duo Call</button>
+{{/if}}
+
+         {{#if (eq this.phoneSelection.phoneSubtype "Windows")}}
+  <button type="button"  {{on "click" (fn this.setFunctionType "skype")}}>Skype</button>
+  {{/if}}
+
+
+<h2>View History</h2>
+<button type="button" aria-label="call(ctrl+c)" {{on "click" (fn this.setLogsType "phone")}}>Call logs</button>
+  
+  <button type="button" aria-label="message(ctrl+m)" {{on "click" (fn this.setLogsType "message")}}>Message logs</button>
+
+    {{#if (eq this.phoneSelection.phoneType "smart")}}
+
+  <button type="button"  {{on "click" (fn this.setLogsType "email")}}>Email logs</button>
+{{/if}}
+
+
+         {{#if (eq this.phoneSelection.phoneSubtype "IOS")}}
+  <button type="button"  {{on "click" (fn this.setLogsType "face")}}>Facetime logs</button>
+{{/if}}
+
+         {{#if (eq this.phoneSelection.phoneSubtype "Android")}}
+  <button type="button"  {{on "click" (fn this.setLogsType "duo")}}>Duo logs</button>
+{{/if}}
+
+         {{#if (eq this.phoneSelection.phoneSubtype "Windows")}}
+  <button type="button"  {{on "click" (fn this.setLogsType "skype")}}>Skype logs</button>
+  {{/if}}
+
+</section>
+
+
+{{outlet}}

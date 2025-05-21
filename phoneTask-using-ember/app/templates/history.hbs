@@ -1,0 +1,74 @@
+{{page-title "History"}}
+
+
+{{#if (or (eq this.phoneSelection.logType "phone") (eq this.phoneSelection.logType "duo") (eq this.phoneSelection.logType "skype") (eq this.phoneSelection.logType "face"))}}
+<h2>{{this.phoneSelection.logType}} call Logs</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>To</th>
+      <th>Call Type</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model as |log|}}
+      <tr>
+        <td>{{log.to}}</td>
+        <td>{{log.callType}}</td>
+        <td>{{log.createdAt}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{/if}}
+
+
+
+{{#if (eq this.phoneSelection.logType "message")}}
+<h2>Message Logs</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>To</th>
+      <th>message</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model as |log|}}
+      <tr>
+        <td>{{log.to}}</td>
+        <td>{{log.message}}</td>
+        <td>{{log.createdAt}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{/if}}
+
+{{#if (eq this.phoneSelection.logType "email")}}
+<h2>Email Logs</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>To</th>
+      <th>Subject</th>
+      <th>Body</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.model as |log|}}
+      <tr>
+        <td>{{log.to}}</td>
+        <td>{{log.subject}}</td>
+        <td>{{log.body}}</td>
+        <td>{{log.createdAt}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{/if}}
+<button {{on "click" this.goback}}>back</button>
+{{outlet}}
